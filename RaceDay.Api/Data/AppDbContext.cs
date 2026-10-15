@@ -31,6 +31,10 @@ public class AppDbContext : DbContext
 		{
 			e.Property(x => x.Name).HasMaxLength(30);
 			e.HasIndex(x => x.Name).IsUnique();
+			e.HasData(
+				new EventType { EventTypeId = 1, Name = "Run" },
+				new EventType { EventTypeId = 2, Name = "Walk" },
+				new EventType { EventTypeId = 3, Name = "Cycle" });
 		});
 
 		b.Entity<Event>(e =>
